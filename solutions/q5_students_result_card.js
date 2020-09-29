@@ -8,3 +8,27 @@
 
 
 // Write your code here
+ const buildStudentObject = (subjectOne,subjectTwo,studentDetails) => {
+    studentDetails.push({name: Math.random().toString(36).substr(2, 5),
+        subject1: subjectOne, subjectOneMarks: Math.floor(Math.random() * 90),
+        subject2: subjectTwo, subjectTwoMarks: Math.floor(Math.random() * 90)})
+}
+const calculatePercentage = (studentDetails,studentPercentage) => {
+    for(let i=0;i<studentDetails.length;i+1){
+        studentPercentage.push({name:studentDetails[i].name ,
+            percentage:(studentDetails[i].subject1_marks+studentDetails[i].subject2_marks)/2});
+    }
+}
+const buildStudentDetails = (studentDetails) =>{
+    for(let i=0;i<50;i+1){
+        buildStudentObject('Grammer','Accounts',studentDetails)
+        buildStudentObject('Grammer','Physics',studentDetails)
+    }
+}
+const buildReportCard = () => {
+    let studentDetails = [];
+    let studentPercentage = [];
+    buildStudentDetails(studentDetails);
+    calculatePercentage(studentDetails,studentPercentage);
+    return studentPercentage;
+}
